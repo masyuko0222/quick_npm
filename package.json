@@ -1,0 +1,21 @@
+{
+  "name": "quick_npm",
+  "version": "1.0.0",
+  "description": "You can try npm without affecting your existing directories.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "prettier --write . && eslint --fix .",
+    "lint": "prettier --check . && eslint .",
+    "trynpm": "./bin/main.js"
+  },
+  "keywords": [],
+  "author": "Kouta Masuko",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3"
+  },
+  "type": "module"
+}
