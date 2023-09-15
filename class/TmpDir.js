@@ -10,6 +10,6 @@ export class TmpDir {
   }
   constructor(path = "", cleanupCallback = () => {}) {
     this.path = path;
-    this.cleanupCallback = cleanupCallback;
+    this.delete = cleanupCallback;
   }
 }
