@@ -1,13 +1,12 @@
-import { Repl } from "./class/Repl.js";
+import { MyRepl } from "./class/MyRepl.js";
 import { TmpDir } from "./class/TmpDir.js";
 
 async function main() {
-  const tmpDir = await TmpDir.create();
-  console.log(tmpDir);
+  // dir has own path and clean up function.
+  //const dir = await TmpDir.create();
 
-  // start REPL
-  const replServer = new Repl("Quick npm >");
-  replServer.setupEvent(tmpDir);
+  const prompt = "Quick npm >";
+  MyRepl.start(prompt)
 }
 
 main();
