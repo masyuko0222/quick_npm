@@ -14,6 +14,11 @@ export class MyRepl {
     replServer.defineCommand("try", {
       help: `You can use specified npm`,
       action(name) {
+        // 今のところdirはtmpライブラリで作られたやつのみ想定
+        // dirにpackage.jsonを作る
+        // packag.jsonにtype: moduleを追記する
+        // `npm install name`をdirで実行する
+          // replServerのcontextにimportさせる
         this.displayPrompt();
       },
     });
