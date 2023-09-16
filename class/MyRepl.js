@@ -1,24 +1,25 @@
 import repl from "repl";
+import { init } from "../module/Helper.js";
 
 export class MyRepl {
   static start(prompt = "", dir = {}) {
+    // define start
     const replServer = repl.start({
       prompt: prompt,
     });
 
+    // define exit
     replServer.on("exit", () => {
       console.log("See you later...");
       dir.cleanupCallback();
     });
 
+    // define `.try` command
     replServer.defineCommand("try", {
       help: `You can use specified npm`,
-      action(name) {
-        // 今のところdirはtmpライブラリで作られたやつのみ想定
-        // dirにpackage.jsonを作る
-        // packag.jsonにtype: moduleを追記する
-        // `npm install name`をdirで実行する
-          // replServerのcontextにimportさせる
+      async action(npm) {
+        init(dir);
+
         this.displayPrompt();
       },
     });
