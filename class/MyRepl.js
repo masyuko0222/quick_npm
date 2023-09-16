@@ -10,5 +10,12 @@ export class MyRepl {
       console.log("See you later...");
       dir.cleanupCallback();
     });
+
+    replServer.defineCommand("try", {
+      help: `You can use specified npm`,
+      action(name) {
+        this.displayPrompt();
+      },
+    });
   }
 }
