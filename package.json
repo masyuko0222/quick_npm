@@ -1,6 +1,6 @@
 {
   "name": "@masyuko0222/quick_npm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "You can try npm without affecting your existing directories.",
   "main": "main.js",
   "scripts": {
@@ -9,7 +9,11 @@
     "lint": "prettier --check . && eslint .",
     "quicknpm": "./main.js"
   },
-  "keywords": [],
+  "keywords": [
+    "npm",
+    "quick_npm",
+    "try npm"
+  ],
   "author": "Kouta Masuko",
   "license": "ISC",
   "devDependencies": {
