@@ -1,5 +1,5 @@
 import repl from "repl";
-import { init } from "../module/Helper.js";
+import { init, applyNpm } from "../module/Helper.js";
 
 export class MyRepl {
   static start(prompt = "", dir = {}) {
@@ -19,6 +19,8 @@ export class MyRepl {
       help: `You can use specified npm`,
       async action(npm) {
         init(dir);
+        applyNpm(npm, replServer, dir);
+        console.log("You can use now!");
 
         this.displayPrompt();
       },
