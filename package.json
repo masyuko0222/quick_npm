@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fix": "prettier --write . && eslint --fix .",
     "lint": "prettier --check . && eslint .",
-    "trynpm": "./bin/main.js"
+    "trynpm": "./main.js"
   },
   "keywords": [],
   "author": "Kouta Masuko",
