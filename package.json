@@ -17,5 +17,8 @@
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "tmp": "^0.2.1"
+  }
 }
