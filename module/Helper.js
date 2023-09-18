@@ -5,7 +5,6 @@ import path from "path";
 
 export function init(dir) {
   child_process.execSync("npm init -y", { cwd: dir.path });
-
   const packageJsonPath = joinPath(dir.path, "package.json");
 
   // For ESmodule
@@ -13,21 +12,19 @@ export function init(dir) {
 }
 
 export async function applyNpm(npmName, replServer, dir) {
-  // tmpDirでnpm install開始
   child_process.execSync(`npm install ${npmName}`, { cwd: dir.path });
 
-  // mainの値を読み取る
-  const npmPackageJsonPath = joinPath(
-    dir.path,
-    "node_modules",
-    npmName,
-    "package.json"
-  );
-  const json = await loadFileAsJson(npmPackageJsonPath);
+  const npmPath = joinPath(dir.path, "node_modules", npmName);
 
-  //const npmMainPath = joinPath(nodeModulePath, json.main);
-  //console.log(npmMainPath);
+  // mainのpathを取得
+  const npmPackageJsonPath = joinPath(npmPath, "package.json");
+  const packageJson = await loadFileAsJson(npmPackageJsonPath);
+  const npmMainPath = joinPath(npmPath, packageJson.main);
+
   // replServerのcontextにmoduleを適用
+  const importedModule = await import(npmMainPath);
+  replServer.context[npmName] = importedModule.default ?? importedModule;
+  return;
 }
 
 // private
@@ -36,10 +33,10 @@ function joinPath(...args) {
 }
 
 async function addTypeModule(packageJsonPath) {
-  const json = await loadFileAsJson(packageJsonPath);
-  json.type = "module";
+  const packageJson = await loadFileAsJson(packageJsonPath);
+  packageJson.type = "module";
 
-  fs.writeFileSync(packageJsonPath, JSON.stringify(json, null, 2), {
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2), {
     encoding: "utf-8",
   });
 }
