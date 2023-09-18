@@ -18,11 +18,19 @@ export class MyRepl {
     replServer.defineCommand("try", {
       help: `You can use specified npm`,
       async action(npm) {
-        init(dir);
-        applyNpm(npm, replServer, dir);
-        console.log("You can use now!");
-
-        this.displayPrompt();
+        try {
+          init(dir);
+          applyNpm(npm, replServer, dir);
+          console.log("You can use now!");
+        } catch (err) {
+          if (err instanceof Error) {
+            console.error(err.message);
+          } else {
+            throw err;
+          }
+        } finally {
+          this.displayPrompt();
+        }
       },
     });
   }
