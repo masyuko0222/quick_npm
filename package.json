@@ -1,6 +1,6 @@
 {
   "name": "@masyuko0222/quick_npm",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "You can try npm without affecting your existing directories.",
   "main": "main.js",
   "scripts": {
@@ -24,5 +24,10 @@
   "type": "module",
   "dependencies": {
     "tmp": "^0.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masyuko0222/quick_npm.git"
+  },
+  "homepage": "https://github.com/masyuko0222/quick_npm#readme"
 }
