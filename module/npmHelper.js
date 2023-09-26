@@ -24,7 +24,6 @@ export async function applyNpm(npmName, replServer, dir) {
   // replServerのcontextにmoduleを適用
   const importedModule = await import(npmMainPath);
   replServer.context[npmName] = importedModule.default ?? importedModule;
-  return;
 }
 
 // private

@@ -1,5 +1,5 @@
 import repl from "repl";
-import { init, applyNpm } from "../module/Helper.js";
+import { init, applyNpm } from "../module/npmHelper.js";
 
 export class MyRepl {
   static start(prompt = "", dir = {}) {
