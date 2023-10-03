@@ -1,6 +1,6 @@
 {
   "name": "@masyuko0222/quick_npm",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "You can try npm without affecting your existing directories.",
   "main": "main.js",
   "scripts": {
